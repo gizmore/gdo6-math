@@ -22,6 +22,7 @@ final class Module_Math extends GDO_Module
     
     public function getEvaluator()
     {
+        $this->includeEvalMath();
         $user = GDO_User::current();
         if (!($math = $user->tempGet('math_evaluator')))
         {

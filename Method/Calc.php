@@ -21,14 +21,12 @@ final class Calc extends MethodForm
             GDT_String::make('input')->notNull(),
             GDT_AntiCSRF::make(),
         ]);
-        $form->addField(
-            GDT_Submit::make());
+        $form->addField(GDT_Submit::make());
     }
 
     public function formValidated(GDT_Form $form)
     {
         $module = Module_Math::instance();
-        $module->includeEvalMath();
         $math = $module->getEvaluator();
         $input = $form->getFormVar('input');
         $result = $math->e($input);
